@@ -1,0 +1,1 @@
+This template is equipped with tailwind and daisy ui

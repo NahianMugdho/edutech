@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Default styles for all devices (mobile-first) */
+.container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+section {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* Small devices (tablets, ≥ 640px) */
+@media (min-width: 640px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+/* Medium devices (small laptops, ≥ 768px) */
+@media (min-width: 768px) {
+  .container {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+/* Large devices (desktops, ≥ 1024px) */
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+
+  section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+/* Extra large devices (large screens, ≥ 1280px) */
+@media (min-width: 1280px) {
+  .container {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+
+  section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
