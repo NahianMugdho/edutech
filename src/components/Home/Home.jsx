@@ -1,12 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const Home = () => {
-    return (
-        <div>
-            Home
-            This line send zarif
-        </div>
-    );
+  return <div>Home This line send zarif fahim</div>;
 };
 
 export default Home;
