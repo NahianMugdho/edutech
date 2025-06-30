@@ -4,7 +4,7 @@ const Home = () => {
     return (
         <div>
             Home
-            This line send zarif
+            This line send kaium
         </div>
     );
 };
