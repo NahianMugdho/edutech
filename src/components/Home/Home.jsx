@@ -4,7 +4,7 @@ const Home = () => {
     return (
         <div>
             Home
-            This line send Inzamul 
+            This line send Al Nahian Mugdho 
         </div>
     );
 };
