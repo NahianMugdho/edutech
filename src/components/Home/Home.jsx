@@ -7,7 +7,7 @@ const Home = () => {
 
             This line send kaium
 
-            2nd push
+            2nd push now
 
 
             This line send Al Nahian Mugdho 
