@@ -9,7 +9,7 @@ const Home = () => {
 
             This line send zarif
 
-            This line send  Mugdho 
+            This line send  Mugdho Nahian
         </div>
     );
 };
