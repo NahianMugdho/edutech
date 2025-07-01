@@ -8,4 +8,7 @@ export default {
     extend: {},
   },
   plugins: [require('daisyui'),],
+   daisyui: {
+    themes: ["light", "dark", "synthwave","retro"], // Ensure "synthwave" is available
+  },
 }

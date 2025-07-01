@@ -1,24 +1,39 @@
 import React from "react";
 import { Link } from "react-router";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 const Navbar = () => {
 
 
  const links = <>
-       <Link to="/" className="mx-2">
-        Home
-      </Link>
-      <Link to="/dashboard" className="mx-2">
-        Dashboard
-      </Link>
-      <Link to="/login" className="mx-2">
-        Login
-      </Link>
-      <Link to="/register" className="mx-2">
-        Register
-      </Link>
-     <li className="mx-2">Theme Change</li>
-     {/* <li><Link to='/'><a>Research</a></Link></li> */}
+       <li>
+    <Link to="/" className="mx-2">
+      Home
+    </Link>
+  </li>
+  <li>
+    <Link to="/dashboard" className="mx-2">
+      Dashboard
+    </Link>
+  </li>
+  <li>
+    <Link to="/" className="mx-2">
+      About us
+    </Link>
+  </li>
+  <li>
+    <Link to="/login" className="mx-2">
+      Courses
+    </Link>
+  </li>
+  {/* <li>
+    <Link to="/register" className="mx-2">
+      Register
+    </Link>
+  </li> */}
+  <li>
+    <ThemeSwitcher />
+  </li>
 
      
     
@@ -45,7 +60,7 @@ const Navbar = () => {
         {links}
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl">daisyUI</a>
+    <a className="btn btn-ghost text-xl">Edu Tech</a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
@@ -53,7 +68,10 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <a className="btn">Button</a>
+    <a className="btn"><Link to="/login" className="mx-2">Login</Link></a>
+    <a className="btn"><Link to="/register" className="mx-2">
+      Register
+    </Link></a>
   </div>
 </div>
 
