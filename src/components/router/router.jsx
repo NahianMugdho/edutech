@@ -5,6 +5,8 @@ import Home from '../Home/Home';
 import Login from '../Auth/Login';
 import Registration from '../Auth/Registration';
 import Dashboard from '../Layout/DashBoard/Dashboard';
+import About from "../About Us/About"; // Adjust path as per your structure
+
 
 const router = createBrowserRouter([
     {
@@ -17,6 +19,11 @@ const router = createBrowserRouter([
                 element: <Home></Home>,
 
             } ,
+            
+            {
+                path: 'about',
+                element: <About />,  
+            },
 
         ],
 
