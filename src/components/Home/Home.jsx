@@ -1,5 +1,6 @@
 import React from "react";
 import MySlider from "../Slider/Slider";
+import CourseSection from "../components/CourseSection";
 
 const Home = () => {
 
@@ -9,6 +10,8 @@ const Home = () => {
       zarif This line send Mugdho Nahian this is new line........
       alll wil be in Homepage
       <MySlider></MySlider>
+
+      <CourseSection></CourseSection>
     </div>
   );
 };
