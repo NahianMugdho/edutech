@@ -15,7 +15,7 @@ import hscMath from "../../assets/Image/Courses/HSC/hmath.jpg";
 import hscICT from "../../assets/Image/Courses/HSC/ict.jpg";
 import hscBio from "../../assets/Image/Courses/HSC/biology.jpg";
 
-// Undergraduate
+// UG
 import ugLinear from "../../assets/Image/Courses/Undergrade/linear.jpeg";
 import ugC from "../../assets/Image/Courses/Undergrade/c.jpg";
 import ugPython from "../../assets/Image/Courses/Undergrade/python.jpeg";
@@ -59,16 +59,17 @@ const CourseSection = () => {
   };
 
   const scroll = (dir) => {
+    const cardWidth = 260 + 24; // 260 card + 24 gap
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
-        left: dir === "left" ? -300 : 300,
+        left: dir === "left" ? -cardWidth : cardWidth,
         behavior: "smooth",
       });
     }
   };
 
   return (
-    <div className="my-12 px-4 max-w-6xl mx-auto bg-base-100 text-base-content">
+    <div className="my-12 px-4 max-w-[1152px] mx-auto bg-base-100 text-base-content">
       <h2 className="text-3xl font-bold text-center mb-6">
         Explore Our Courses by Category
       </h2>
@@ -80,11 +81,10 @@ const CourseSection = () => {
             key={tab}
             onClick={() => setActiveTab(tab)}
             className={`px-6 py-2 rounded-full font-medium transition-all ${
-             activeTab === tab
-             ? "bg-orange-500 text-white"
-              : "text-base-content hover:bg-[#fff4d0]/70 dark:hover:bg-[#b85d00]/80"
-          }`}
-
+              activeTab === tab
+                ? "bg-orange-500 text-white"
+                : "text-base-content hover:bg-[#fff4d0]/70 dark:hover:bg-[#b85d00]/80"
+            }`}
           >
             {tab}
           </button>
@@ -93,6 +93,7 @@ const CourseSection = () => {
 
       {/* Arrows + Cards */}
       <div className="relative">
+        {/* Left arrow */}
         <button
           onClick={() => scroll("left")}
           className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 bg-base-100/70 hover:bg-orange-200 dark:bg-base-300/60 rounded-full shadow-md"
@@ -102,21 +103,30 @@ const CourseSection = () => {
           </svg>
         </button>
 
+        {/* Cards */}
         <div
           ref={scrollRef}
-          className="flex gap-6 overflow-x-auto scroll-smooth no-scrollbar px-6"
+          className="flex flex-nowrap gap-6 overflow-x-auto scroll-smooth no-scrollbar px-6"
         >
           {courseData[activeTab].map((course, i) => (
             <div
               key={i}
-              className="min-w-[250px] bg-base-200 rounded-lg shadow-md relative hover:shadow-xl transition"
+              className="w-[260px] flex-shrink-0 bg-base-200 rounded-md shadow-md relative hover:shadow-xl transition"
             >
-              <img src={course.image} alt={course.name} className="h-40 w-full object-cover" />
+              <img
+                src={course.image}
+                alt={course.name}
+                className="h-40 w-full object-cover rounded-t-md"
+              />
               <button
                 onClick={() => toggleFavorite(course.name)}
                 className="absolute top-2 right-2 text-white bg-black/50 rounded-full p-1"
               >
-                {favorites[course.name] ? <FaStar className="text-yellow-400" /> : <FaRegStar />}
+                {favorites[course.name] ? (
+                  <FaStar className="text-yellow-400" />
+                ) : (
+                  <FaRegStar />
+                )}
               </button>
               <div className="p-4">
                 <h3 className="text-lg font-bold">{course.name}</h3>
@@ -134,6 +144,7 @@ const CourseSection = () => {
           ))}
         </div>
 
+        {/* Right arrow */}
         <button
           onClick={() => scroll("right")}
           className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 bg-base-100/70 hover:bg-orange-200 dark:bg-base-300/60 rounded-full shadow-md"
