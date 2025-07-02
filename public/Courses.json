@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1,
+    "image": "https://blog.pwskills.com/wp-content/uploads/2023/12/Full-Stack-Developer-Roadmap-2024-01-01.png",
+    "title": "Full-Stack Web Development",
+    "price": 149.99,
+    "duration": "12 weeks",
+    "level": "Beginner to Advanced",
+    "instructor": "John Doe",
+    "rating": 4.8,
+    "students": 2300,
+    "language": "English",
+    "tags": ["HTML", "CSS", "JavaScript", "React", "Node.js"]
+  },
+  {
+    "id": 2,
+    "image": "https://th.bing.com/th/id/OIP.doYHfVKgVncrGIL5jmSOMgHaE8?w=276&h=184&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "title": "UI/UX Design Masterclass",
+    "price": 99.99,
+    "duration": "8 weeks",
+    "level": "Beginner",
+    "instructor": "Jane Smith",
+    "rating": 4.6,
+    "students": 1800,
+    "language": "English",
+    "tags": ["Figma", "Wireframing", "Prototyping", "User Research"]
+  },
+  {
+    "id": 3,
+    "image": "https://tse4.mm.bing.net/th/id/OIP.0lFw69pEakJ8uxbFZo7yVAHaEo?rs=1&pid=ImgDetMain&o=7&rm=3",
+    "title": "Python for Data Science",
+    "price": 119.99,
+    "duration": "10 weeks",
+    "level": "Intermediate",
+    "instructor": "Albert Kim",
+    "rating": 4.7,
+    "students": 3200,
+    "language": "English",
+    "tags": ["Python", "Pandas", "NumPy", "Data Analysis", "Jupyter"]
+  },
+  {
+    "id": 4,
+    "image": "https://th.bing.com/th/id/OIP.xWR9Tc-KR8MjhFn4OWNiIgHaE7?w=255&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "title": "Machine Learning A-Z",
+    "price": 129.99,
+    "duration": "14 weeks",
+    "level": "Advanced",
+    "instructor": "Sara Lee",
+    "rating": 4.9,
+    "students": 4100,
+    "language": "English",
+    "tags": ["AI", "ML", "Python", "Scikit-learn", "TensorFlow"]
+  },
+  {
+    "id": 5,
+    "image": "https://th.bing.com/th/id/OIP.Ow9uyNjmanmbQTMbUc95rQHaE8?w=253&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "title": "Digital Marketing Bootcamp",
+    "price": 89.99,
+    "duration": "6 weeks",
+    "level": "Beginner",
+    "instructor": "Mark Johnson",
+    "rating": 4.5,
+    "students": 1500,
+    "language": "English",
+    "tags": ["SEO", "Google Ads", "Social Media", "Analytics"]
+  },
+  {
+    "id": 6,
+    "image": "https://th.bing.com/th/id/OIP.-7yXrX2YZapltCN411zLCwHaE8?w=236&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "title": "Cybersecurity Essentials",
+    "price": 109.99,
+    "duration": "9 weeks",
+    "level": "Intermediate",
+    "instructor": "Elena Garcia",
+    "rating": 4.7,
+    "students": 2700,
+    "language": "English",
+    "tags": ["Cybersecurity", "Network Security", "Ethical Hacking"]
+  }
+]
