@@ -1,6 +1,6 @@
 import React from "react";
 import MySlider from "../Slider/Slider";
-import CourseSection from "../components/CourseSection";
+import CourseSection from "../CourseSection/courSec";
 
 const Home = () => {
 
