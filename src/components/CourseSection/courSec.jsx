@@ -1,21 +1,19 @@
 import React, { useState, useRef } from "react";
-import { FaRegStar, FaStar, FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { FaRegStar, FaStar } from "react-icons/fa";
 
-// --- SSC
+// Assets (your paths)
 import sscPhysics from "../../assets/Image/Courses/SSC/physics.jpg";
 import sscChem from "../../assets/Image/Courses/SSC/chemistry.jpg";
 import sscMath from "../../assets/Image/Courses/SSC/math.jpg";
 import sscEng from "../../assets/Image/Courses/SSC/english.jpeg";
 import sscBio from "../../assets/Image/Courses/SSC/biology.jpeg";
 
-// --- HSC
 import hscPhysics from "../../assets/Image/Courses/HSC/physics.jpg";
 import hscChem from "../../assets/Image/Courses/HSC/chemistry.jpg";
 import hscMath from "../../assets/Image/Courses/HSC/hmath.jpg";
 import hscICT from "../../assets/Image/Courses/HSC/ict.jpg";
 import hscBio from "../../assets/Image/Courses/HSC/biology.jpg";
 
-// --- Undergrade (Undergraduate)
 import ugLinear from "../../assets/Image/Courses/Undergrade/linear.jpeg";
 import ugC from "../../assets/Image/Courses/Undergrade/c.jpg";
 import ugPython from "../../assets/Image/Courses/Undergrade/python.jpeg";
@@ -51,24 +49,18 @@ const CourseSection = () => {
   const [favorites, setFavorites] = useState({});
   const scrollRef = useRef(null);
 
-  const scroll = (direction) => {
-    const { current } = scrollRef;
-    if (!current) return;
-    if (direction === "left") current.scrollLeft -= 300;
-    else current.scrollLeft += 300;
+  const scroll = (dir) => {
+    const el = scrollRef.current;
+    if (el) el.scrollBy({ left: dir === "left" ? -300 : 300, behavior: "smooth" });
   };
 
   const toggleFavorite = (courseName) => {
-    setFavorites((prev) => ({
-      ...prev,
-      [courseName]: !prev[courseName],
-    }));
+    setFavorites((prev) => ({ ...prev, [courseName]: !prev[courseName] }));
   };
 
   return (
     <div className="my-12 px-4 max-w-6xl mx-auto">
-      {/* Title */}
-      <h2 className="text-3xl font-bold text-center text-primary mb-6">
+      <h2 className="text-3xl font-bold text-center text-amber mb-6">
         Explore Our Courses by Category
       </h2>
 
@@ -78,65 +70,55 @@ const CourseSection = () => {
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`px-6 py-2 rounded-full font-semibold border ${
+            className={`px-6 py-2 rounded-full font-semibold border transition-all ${
               activeTab === tab
-                ? "bg-primary text-white"
-                : "border-primary text-primary hover:bg-primary/10"
-            } transition`}
+                ? "bg-amber text-white"
+                : "border-amber text-amber hover:bg-amber/10"
+            }`}
           >
             {tab}
           </button>
         ))}
       </div>
 
-      {/* Arrow-controlled slider */}
+      {/* Slider */}
       <div className="relative">
         {/* Left Arrow */}
         <button
           onClick={() => scroll("left")}
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-base-300 hover:bg-base-200 p-2 rounded-full shadow"
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 bg-base-100/80 hover:bg-amber/20 rounded-full shadow"
         >
-          <FaArrowLeft />
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
         </button>
 
-        {/* Course Cards */}
+        {/* Scrollable Courses */}
         <div
           ref={scrollRef}
-          className="flex overflow-x-auto gap-6 px-6 scroll-smooth no-scrollbar"
+          className="flex gap-6 px-6 overflow-x-auto scroll-smooth touch-pan-x no-scrollbar"
         >
-          {courseData[activeTab].map((course, index) => (
+          {courseData[activeTab].map((course, i) => (
             <div
-              key={index}
-              className="min-w-[250px] bg-base-200 rounded-lg shadow-md overflow-hidden relative hover:shadow-lg transition"
+              key={i}
+              className="min-w-[250px] bg-base-200 rounded-lg shadow-md relative hover:shadow-xl transition"
             >
-              <img
-                src={course.image}
-                alt={course.name}
-                className="h-40 w-full object-cover"
-              />
+              <img src={course.image} alt={course.name} className="h-40 w-full object-cover" />
               <button
-                className="absolute top-2 right-2 text-white bg-black bg-opacity-50 rounded-full p-1"
                 onClick={() => toggleFavorite(course.name)}
+                className="absolute top-2 right-2 text-white bg-black/50 rounded-full p-1"
               >
-                {favorites[course.name] ? (
-                  <FaStar className="text-yellow-400" />
-                ) : (
-                  <FaRegStar />
-                )}
+                {favorites[course.name] ? <FaStar className="text-yellow-400" /> : <FaRegStar />}
               </button>
               <div className="p-4">
-                <h3 className="text-lg font-bold text-primary">
-                  {course.name}
-                </h3>
-                <p className="text-sm text-gray-500 mt-1">
-                  Expert-led & student-focused
-                </p>
+                <h3 className="text-lg font-bold text-amber">{course.name}</h3>
+                <p className="text-sm text-gray-500 mt-1">Expert-led & student-focused</p>
                 <div className="mt-4 flex gap-2 justify-between">
-                  <button className="btn btn-sm btn-outline text-primary border-primary hover:bg-primary hover:text-white">
+                  <button className="btn btn-sm btn-outline border-amber text-amber hover:bg-amber hover:text-white">
                     Learn More
                   </button>
-                  <button className="btn btn-sm bg-primary text-white hover:bg-primary-focus">
-                    Enroll Now
+                  <button className="btn btn-sm bg-amber text-white hover:bg-amber-dark">
+                    Enroll
                   </button>
                 </div>
               </div>
@@ -147,9 +129,11 @@ const CourseSection = () => {
         {/* Right Arrow */}
         <button
           onClick={() => scroll("right")}
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-base-300 hover:bg-base-200 p-2 rounded-full shadow"
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 bg-base-100/80 hover:bg-amber/20 rounded-full shadow"
         >
-          <FaArrowRight />
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M9 6l6 6-6 6" />
+          </svg>
         </button>
       </div>
     </div>
