@@ -1,7 +1,7 @@
 import React from "react";
-import sscImg from "../../assets/ssc.jpg";
-import hscImg from "../../assets/hsc.jpg";
-import undergradImg from "../../assets/undergrad.jpg";
+import sscImg from "../../assets/Image/About/ssc.jpg";
+import hscImg from "../../assets/Image/About/hsc.jpg";
+import undergradImg from "../../assets/Image/About/undergrad.jpg";
 
 const About = () => {
   return (
