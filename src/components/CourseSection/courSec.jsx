@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
-import { FaRegStar, FaStar } from "react-icons/fa";
-import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
+import { MdArrowBackIosNew, MdArrowForwardIos, MdAccessTime } from "react-icons/md";
+import { FaHeart, FaRegHeart, FaStar } from "react-icons/fa";
 
 // Course Images
 import sscPhysics from "../../assets/Image/Courses/SSC/physics.jpg";
@@ -21,27 +21,28 @@ import ugPython from "../../assets/Image/Courses/Undergrade/python.jpeg";
 import ugML from "../../assets/Image/Courses/Undergrade/ml.jpg";
 import ugElectronics from "../../assets/Image/Courses/Undergrade/elec.jpeg";
 
+// Course Data
 const courseData = {
   SSC: [
-    { name: "Physics", image: sscPhysics },
-    { name: "Chemistry", image: sscChem },
-    { name: "Mathematics", image: sscMath },
-    { name: "English", image: sscEng },
-    { name: "Biology", image: sscBio },
+    { name: "Physics", image: sscPhysics, duration: "1.5 hrs", rating: 4.6, reviews: 1287 },
+    { name: "Chemistry", image: sscChem, duration: "2 hrs", rating: 4.7, reviews: 1111 },
+    { name: "Mathematics", image: sscMath, duration: "2.5 hrs", rating: 4.4, reviews: 1030 },
+    { name: "English", image: sscEng, duration: "1.2 hrs", rating: 4.5, reviews: 900 },
+    { name: "Biology", image: sscBio, duration: "1.8 hrs", rating: 4.3, reviews: 840 },
   ],
   HSC: [
-    { name: "Physics", image: hscPhysics },
-    { name: "Chemistry", image: hscChem },
-    { name: "Higher Math", image: hscMath },
-    { name: "ICT", image: hscICT },
-    { name: "Biology", image: hscBio },
+    { name: "Physics", image: hscPhysics, duration: "2 hrs", rating: 4.7, reviews: 1021 },
+    { name: "Chemistry", image: hscChem, duration: "2.5 hrs", rating: 4.6, reviews: 1102 },
+    { name: "Higher Math", image: hscMath, duration: "3 hrs", rating: 4.8, reviews: 1221 },
+    { name: "ICT", image: hscICT, duration: "1.5 hrs", rating: 4.5, reviews: 800 },
+    { name: "Biology", image: hscBio, duration: "2.2 hrs", rating: 4.4, reviews: 760 },
   ],
   Undergraduate: [
-    { name: "Linear Algebra", image: ugLinear },
-    { name: "C Programming", image: ugC },
-    { name: "Python Programming", image: ugPython },
-    { name: "Machine Learning", image: ugML },
-    { name: "Electronics & Circuits", image: ugElectronics },
+    { name: "Linear Algebra", image: ugLinear, duration: "4 hrs", rating: 4.9, reviews: 1560 },
+    { name: "C Programming", image: ugC, duration: "5 hrs", rating: 4.8, reviews: 1700 },
+    { name: "Python Programming", image: ugPython, duration: "6 hrs", rating: 4.9, reviews: 1950 },
+    { name: "Machine Learning", image: ugML, duration: "5.5 hrs", rating: 4.7, reviews: 1830 },
+    { name: "Electronics & Circuits", image: ugElectronics, duration: "4.3 hrs", rating: 4.6, reviews: 1500 },
   ],
 };
 
@@ -92,26 +93,25 @@ const CourseSection = () => {
 
       {/* Arrows + Slider */}
       <div className="relative">
-      {/* Left Arrow Button */}
-      <button
-        onClick={scrollLeft}
-        className="hidden md:flex absolute -left-6 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full shadow-md
-          bg-gray-400/60 dark:bg-gray-600/60 hover:bg-orange-300 transition-colors"
-      >
-        <MdArrowBackIosNew size={20} className="text-black dark:text-white" />
-      </button>
+        {/* Left Arrow */}
+        <button
+          onClick={scrollLeft}
+          className="hidden md:flex absolute -left-6 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full shadow-md
+            bg-gray-400/60 dark:bg-gray-600/60 hover:bg-orange-300 transition-colors"
+        >
+          <MdArrowBackIosNew size={20} className="text-black dark:text-white" />
+        </button>
 
-      {/* Right Arrow Button */}
-      <button
-        onClick={scrollRight}
-        className="hidden md:flex absolute -right-6 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full shadow-md
-          bg-gray-400/60 dark:bg-gray-600/60 hover:bg-orange-300 transition-colors"
-      >
-        <MdArrowForwardIos size={20} className="text-black dark:text-white" />
-      </button>
+        {/* Right Arrow */}
+        <button
+          onClick={scrollRight}
+          className="hidden md:flex absolute -right-6 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full shadow-md
+            bg-gray-400/60 dark:bg-gray-600/60 hover:bg-orange-300 transition-colors"
+        >
+          <MdArrowForwardIos size={20} className="text-black dark:text-white" />
+        </button>
 
-
-        {/* Card Container */}
+        {/* Course Cards */}
         <div
           ref={sliderRef}
           className="flex gap-6 overflow-x-hidden scroll-smooth px-1"
@@ -119,21 +119,22 @@ const CourseSection = () => {
           {courseData[activeTab].map((course, index) => (
             <div
               key={index}
-              className="w-[calc(100%/3-1.5rem)] min-w-[320px] bg-base-200 rounded-lg shadow-md overflow-hidden relative transform transition-transform duration-300 hover:-translate-y-2"
+              className="w-[calc(100%/3-1.5rem)] min-w-[320px] bg-base-200 rounded-lg shadow-md overflow-hidden relative hover:-translate-y-1 hover:shadow-lg transition-transform duration-300"
             >
               <img
                 src={course.image}
                 alt={course.name}
                 className="h-40 w-full object-cover"
               />
+              {/* Favorite Button */}
               <button
                 className="absolute top-2 right-2 text-white bg-black bg-opacity-50 rounded-full p-1"
                 onClick={() => toggleFavorite(course.name)}
               >
                 {favorites[course.name] ? (
-                  <FaStar className="text-yellow-400" />
+                  <FaHeart className="text-rose-500" />
                 ) : (
-                  <FaRegStar />
+                  <FaRegHeart />
                 )}
               </button>
 
@@ -141,9 +142,19 @@ const CourseSection = () => {
                 <h3 className="text-lg font-bold text-base-content">
                   {course.name}
                 </h3>
-                <p className="text-sm text-gray-500 mt-1">
-                  Expert-led content by professionals
-                </p>
+                {/* Duration */}
+                <div className="flex items-center gap-1 text-gray-500 text-sm mt-1">
+                  <MdAccessTime size={16} /> <span>{course.duration}</span>
+                </div>
+                {/* Rating */}
+                <div className="text-sm text-gray-500 mt-1">
+                  <span className="flex items-center gap-1">
+                    <FaStar className="text-yellow-400" />
+                    {course.rating} ({course.reviews})
+                  </span>
+                </div>
+
+                {/* Buttons */}
                 <div className="mt-4 flex gap-2 justify-between">
                   <button className="btn btn-sm btn-outline text-amber-600 border-amber-600 hover:bg-amber-600 hover:text-white">
                     Learn More
