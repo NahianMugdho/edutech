@@ -1,1 +1,1 @@
-This template is equipped with tailwind and daisy ui
+Link: https://borno-9e597.web.app/

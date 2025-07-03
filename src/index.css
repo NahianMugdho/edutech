@@ -63,3 +63,13 @@ section {
     padding-bottom: 6rem;
   }
 }
+
+
+/* Hide scrollbars */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
