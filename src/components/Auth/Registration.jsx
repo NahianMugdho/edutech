@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { updateProfile } from "firebase/auth";
 import AuthContext from './AuthContext';
+import AxiosPublic from './AxiosPublic';
 
 
 const Registration = () => {
@@ -36,6 +37,18 @@ const Registration = () => {
         console.log("User profile updated successfully");
         alert("Registration Successful!");
         navigate('/');
+         const userInfo={
+             name : fullName,
+             email : email
+          }
+          //save user info to db
+          AxiosPublic().post('/users',userInfo)
+          .then(res=>{
+            if (res.data.insertedId) {
+              alert("Registration Successful!");
+              navigate('/'); // Redirect to home
+            }
+          })
       })
       .catch((error) => {
         console.error("Registration Error:", error.message);
