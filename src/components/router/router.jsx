@@ -6,6 +6,7 @@ import Login from "../Auth/Login";
 import Registration from "../Auth/Registration";
 import Dashboard from "../Layout/DashBoard/Dashboard";
 import About from "../About Us/About"; // Adjust path as per your structure
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -34,7 +35,7 @@ const router = createBrowserRouter([
   },
   {
     path: "Dashboard",
-    element: <Dashboard></Dashboard>,
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
   },
 ]);
 
