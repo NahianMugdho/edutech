@@ -6,7 +6,11 @@ import Login from "../Auth/Login";
 import Registration from "../Auth/Registration";
 import Dashboard from "../Layout/DashBoard/Dashboard";
 import About from "../About Us/About"; // Adjust path as per your structure
+<<<<<<< HEAD
 import CourseDetails from "../CourseDetails/CourseDetails";
+=======
+import PrivateRoute from "./PrivateRoute";
+>>>>>>> 0ef0e4741455a295eda699a87c11621f8908eb07
 
 const router = createBrowserRouter([
   {
@@ -35,7 +39,7 @@ const router = createBrowserRouter([
   },
   {
     path: "Dashboard",
-    element: <Dashboard></Dashboard>,
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
   },
   {
     path: "/courses/:id",
