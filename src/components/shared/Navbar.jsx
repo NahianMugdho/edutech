@@ -83,7 +83,19 @@ const Navbar = () => {
                     </ul>
                 </div>
                 {/* Logo and Website Name */}
-                <a className="btn btn-ghost text-xl">BornoByte</a>
+                <div className="flex items-center gap-3">
+                    {/* Logo Image */}
+                    <img
+                        src="https://i.imgur.com/UyHx6HZ.png" // replace with your actual image link
+                        alt="BornoByte Logo"
+                        className="w-10 h-10 sm:w-12 sm:h-12" // adjust as needed
+                    />
+
+                    {/* Website Name */}
+                    <span className="text-2xl sm:text-3xl font-berlin text-amber-500">
+                        BornoByte
+                    </span>
+                    </div>
             </div>
 
             <div className="navbar-center hidden lg:flex">
