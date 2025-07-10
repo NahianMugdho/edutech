@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+import defaultTheme from 'tailwindcss/defaultTheme'
+
 export default {
   content: [
     "./index.html",
@@ -7,12 +9,12 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Berlin Sans FB Demi', 'sans-serif'], // Custom font
+        berlin: ['Berlin Sans FB Demi', ...defaultTheme.fontFamily.sans], // ⬅️ This won't override default fonts
       },
     },
   },
-  plugins: [require('daisyui'),],
-   daisyui: {
-    themes: ["light", "dark", "synthwave","retro"], // Ensure "synthwave" is available
+  plugins: [require('daisyui')],
+  daisyui: {
+    themes: ["light", "dark", "synthwave", "retro"],
   },
 }
