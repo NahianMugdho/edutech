@@ -1,6 +1,7 @@
 import { IoTime } from "react-icons/io5";
+import { Link } from "react-router-dom";
 const Course = ({ course }) => {
-  const { duration, image, title } = course;
+  const { duration, image, title, id } = course;
   return (
     <div className="card bg-base-100 w-96 shadow-sm">
       <figure>
@@ -22,9 +23,11 @@ const Course = ({ course }) => {
           <p>{duration}</p>
         </div>
 
-        <div className="card-actions justify-end">
-          <div className="badge badge-outline">Fashion</div>
-          <div className="badge badge-outline">Products</div>
+        <div className="card-actions justify-between">
+          <Link to={`/courses/${id}`}>
+            <button className="btn btn-outline btn-primary">Learn More</button>
+          </Link>
+          <button className="btn btn-primary">Enroll</button>
         </div>
       </div>
     </div>
