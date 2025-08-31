@@ -17,7 +17,7 @@
     "cors": "^2.8.5",
     "emailjs-com": "^3.2.0",
     "firebase": "^11.10.0",
-    "framer-motion": "^12.23.6",
+    "framer-motion": "^12.23.12",
     "localforage": "^1.10.0",
     "lottie-react": "^2.4.1",
     "lucide-react": "^0.536.0",
