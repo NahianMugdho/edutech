@@ -42,7 +42,7 @@ const AuthProvider = ({ children }) => {
       if (firebaseUser) {
         try {
           // Fetch admin status from backend
-          const res = await fetch(`http://localhost:3000/users/admin/${firebaseUser.email}`);
+          const res = await fetch(`https://bornobyte-680lol1f2-mugdhos-projects-9c18dfda.vercel.app/users/admin/${firebaseUser.email}`);
           const data = await res.json();
 
           // data.admin is true or false, set role accordingly

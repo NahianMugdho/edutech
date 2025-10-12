@@ -41,7 +41,7 @@ const AllCourses = () => {
         await Promise.all(
           courses.map(async (course) => {
             try {
-              const res = await axios.get(`http://localhost:3000/reviews/${course._id}/average`);
+              const res = await axios.get(`https://bornobyte-680lol1f2-mugdhos-projects-9c18dfda.vercel.app/reviews/${course._id}/average`);
               ratings[course._id] = {
                 avgRating: res.data.avgRating || 0,
                 count: res.data.count || 0,
@@ -65,7 +65,7 @@ const AllCourses = () => {
     }
 
     axios
-      .get("http://localhost:3000/favorites", {
+      .get("https://bornobyte-680lol1f2-mugdhos-projects-9c18dfda.vercel.app/favorites", {
         headers: { authorization: `Bearer ${localStorage.getItem("access-token")}` },
       })
       .then(res => {
@@ -84,7 +84,7 @@ const AllCourses = () => {
   useEffect(() => {
     if (!user?.email) return;
     axios
-      .get("http://localhost:3000/enrollRequests", {
+      .get("https://bornobyte-680lol1f2-mugdhos-projects-9c18dfda.vercel.app/enrollRequests", {
         headers: {
           authorization: `Bearer ${localStorage.getItem("access-token")}`,
         },
@@ -106,7 +106,7 @@ const AllCourses = () => {
     setLoadingFavorites(prev => [...prev, courseId]);
     try {
       await axios.post(
-        "http://localhost:3000/favorites",
+        "https://bornobyte-680lol1f2-mugdhos-projects-9c18dfda.vercel.app/favorites",
         { courseId },
         {
           headers: { authorization: `Bearer ${localStorage.getItem("access-token")}` },
@@ -123,7 +123,7 @@ const AllCourses = () => {
     if (loadingFavorites.includes(courseId)) return;
     setLoadingFavorites(prev => [...prev, courseId]);
     try {
-      await axios.delete(`http://localhost:3000/favorites/${courseId}`, {
+      await axios.delete(`https://bornobyte-680lol1f2-mugdhos-projects-9c18dfda.vercel.app/favorites/${courseId}`, {
         headers: { authorization: `Bearer ${localStorage.getItem("access-token")}` },
       });
       setFavoriteCourseIds(prev => prev.filter(id => id !== courseId));

@@ -16,7 +16,7 @@ const UserDashboard = () => {
   // ✅ Fetch all approved courses
   useEffect(() => {
     axios
-      .get("http://localhost:3000/videos")
+      .get("https://bornobyte-680lol1f2-mugdhos-projects-9c18dfda.vercel.app/videos")
       .then((res) => {
         const approvedCourses = res.data.filter(course => course.status === "approved");
         setCourses(approvedCourses);
@@ -29,7 +29,7 @@ const UserDashboard = () => {
     if (!user?.email) return;
 
     axios
-      .get("http://localhost:3000/enrollRequests", {
+      .get("https://bornobyte-680lol1f2-mugdhos-projects-9c18dfda.vercel.app/enrollRequests", {
         headers: { authorization: `Bearer ${localStorage.getItem("access-token")}` }
       })
       .then(res => {
@@ -46,7 +46,7 @@ const UserDashboard = () => {
     if (!user?.email) return;
 
     axios
-      .get("http://localhost:3000/favorites", {
+      .get("https://bornobyte-680lol1f2-mugdhos-projects-9c18dfda.vercel.app/favorites", {
         headers: { authorization: `Bearer ${localStorage.getItem("access-token")}` }
       })
       .then(res => {
@@ -64,7 +64,7 @@ const UserDashboard = () => {
     setLoadingFavorites(prev => [...prev, courseId]);
     try {
       await axios.post(
-        "http://localhost:3000/favorites",
+        "https://bornobyte-680lol1f2-mugdhos-projects-9c18dfda.vercel.app/favorites",
         { courseId },
         { headers: { authorization: `Bearer ${localStorage.getItem("access-token")}` } }
       );
@@ -79,7 +79,7 @@ const UserDashboard = () => {
     if (loadingFavorites.includes(courseId)) return;
     setLoadingFavorites(prev => [...prev, courseId]);
     try {
-      await axios.delete(`http://localhost:3000/favorites/${courseId}`, {
+      await axios.delete(`https://bornobyte-680lol1f2-mugdhos-projects-9c18dfda.vercel.app/favorites/${courseId}`, {
         headers: { authorization: `Bearer ${localStorage.getItem("access-token")}` }
       });
       setFavoriteCourseIds(prev => prev.filter(id => id !== courseId));

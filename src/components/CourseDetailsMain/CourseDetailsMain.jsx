@@ -101,7 +101,7 @@ const CourseDetailsMain = () => {
 
     // Fetch reviews
     axios
-      .get(`http://localhost:3000/reviews/${course._id}`)
+      .get(`https://bornobyte-680lol1f2-mugdhos-projects-9c18dfda.vercel.app/reviews/${course._id}`)
       .then((res) => {
         setReviews(res.data);
         // Find if current user already reviewed
@@ -122,7 +122,7 @@ const CourseDetailsMain = () => {
 
     // Fetch average rating
     axios
-      .get(`http://localhost:3000/reviews/${course._id}/average`)
+      .get(`https://bornobyte-680lol1f2-mugdhos-projects-9c18dfda.vercel.app/reviews/${course._id}/average`)
       .then((res) => {
         setAvgRating(res.data.avgRating);
         setReviewCount(res.data.count);
@@ -256,7 +256,7 @@ const CourseDetailsMain = () => {
     try {
       if (userReview) {
         await axios.patch(
-          `http://localhost:3000/reviews/${userReview._id}`,
+          `https://bornobyte-680lol1f2-mugdhos-projects-9c18dfda.vercel.app/reviews/${userReview._id}`,
           {
             rating: ratingInput,
             comment: commentInput,
@@ -269,7 +269,7 @@ const CourseDetailsMain = () => {
         );
       } else {
         await axios.post(
-          `http://localhost:3000/reviews`,
+          `https://bornobyte-680lol1f2-mugdhos-projects-9c18dfda.vercel.app/reviews`,
           {
             courseId: course._id,
             rating: ratingInput,
@@ -294,7 +294,7 @@ const CourseDetailsMain = () => {
     if (!window.confirm("Are you sure you want to delete your review?")) return;
 
     try {
-      await axios.delete(`http://localhost:3000/reviews/${id}`, {
+      await axios.delete(`https://bornobyte-680lol1f2-mugdhos-projects-9c18dfda.vercel.app/reviews/${id}`, {
         headers: {
           authorization: `Bearer ${localStorage.getItem("access-token")}`,
         },
@@ -511,7 +511,7 @@ const CourseDetailsMain = () => {
                                 if (window.confirm("Delete this review?")) {
                                   try {
                                     await axios.delete(
-                                      `http://localhost:3000/reviews/${rev._id}`,
+                                      `https://bornobyte-680lol1f2-mugdhos-projects-9c18dfda.vercel.app/reviews/${rev._id}`,
                                       {
                                         headers: {
                                           authorization: `Bearer ${localStorage.getItem("access-token")}`,

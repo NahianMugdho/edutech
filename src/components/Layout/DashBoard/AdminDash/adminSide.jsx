@@ -16,7 +16,7 @@ const AdminSidebar = ({ setAdminTab }) => {
   useEffect(() => {
       const fetchPendingCount = async () => {
         try {
-          const res = await axios.get("http://localhost:3000/enrollRequests/pending-count", {
+          const res = await axios.get("https://bornobyte-680lol1f2-mugdhos-projects-9c18dfda.vercel.app/enrollRequests/pending-count", {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("access-token")}`,
             },
@@ -37,13 +37,13 @@ const AdminSidebar = ({ setAdminTab }) => {
       const fetchCounts = async () => {
         try {
           // Pending enrollment requests
-          const enrollRes = await axios.get("http://localhost:3000/enrollRequests/pending-count", {
+          const enrollRes = await axios.get("https://bornobyte-680lol1f2-mugdhos-projects-9c18dfda.vercel.app/enrollRequests/pending-count", {
             headers: { Authorization: `Bearer ${localStorage.getItem("access-token")}` },
           });
           setPendingCount(enrollRes.data.count);
 
           // Pending courses
-          const courseRes = await axios.get("http://localhost:3000/videos/pending-count", {
+          const courseRes = await axios.get("https://bornobyte-680lol1f2-mugdhos-projects-9c18dfda.vercel.app/videos/pending-count", {
             headers: { Authorization: `Bearer ${localStorage.getItem("access-token")}` },
           });
           setPendingCoursesCount(courseRes.data.count);

@@ -38,7 +38,7 @@ const TeacherCard = () => {
 
   const fetchTeachers = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/teachers");
+      const res = await axios.get("https://bornobyte-680lol1f2-mugdhos-projects-9c18dfda.vercel.app/teachers");
       setTeachers(res.data);
     } catch (error) {
       console.error("Failed to fetch teachers:", error);
@@ -47,7 +47,7 @@ const TeacherCard = () => {
 
   const fetchVideos = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/videos");
+      const res = await axios.get("https://bornobyte-680lol1f2-mugdhos-projects-9c18dfda.vercel.app/videos");
       setVideos(res.data);
     } catch (error) {
       console.error("Failed to fetch videos:", error);
@@ -129,11 +129,11 @@ const TeacherCard = () => {
       const payload = { ...formData, userEmail: currentUser.email };
       if (editingTeacher) {
         await axios.put(
-          `http://localhost:3000/teachers/${editingTeacher._id}`,
+          `https://bornobyte-680lol1f2-mugdhos-projects-9c18dfda.vercel.app/teachers/${editingTeacher._id}`,
           payload
         );
       } else {
-        await axios.post("http://localhost:3000/teachers", payload);
+        await axios.post("https://bornobyte-680lol1f2-mugdhos-projects-9c18dfda.vercel.app/teachers", payload);
       }
       fetchTeachers();
       handleClose();
@@ -152,7 +152,7 @@ const TeacherCard = () => {
     }
 
     try {
-      await axios.delete(`http://localhost:3000/teachers/${id}`, {
+      await axios.delete(`https://bornobyte-680lol1f2-mugdhos-projects-9c18dfda.vercel.app/teachers/${id}`, {
         data: { userEmail: currentUser.email },
       });
       fetchTeachers();

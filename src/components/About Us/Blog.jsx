@@ -22,7 +22,7 @@ const Blog = () => {
   // Fetch blogs from backend
   const fetchBlogs = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/blogs");
+      const res = await axios.get("https://bornobyte-680lol1f2-mugdhos-projects-9c18dfda.vercel.app/blogs");
       setBlogs(res.data);
     } catch (err) {
       console.error("Failed to load blogs", err);
@@ -87,7 +87,7 @@ const Blog = () => {
 
       if (modalMode === "add") {
         await axios.post(
-          "http://localhost:3000/blogs",
+          "https://bornobyte-680lol1f2-mugdhos-projects-9c18dfda.vercel.app/blogs",
           {
             ...formData,
             timestamp: new Date(),
@@ -100,7 +100,7 @@ const Blog = () => {
         );
       } else if (modalMode === "edit" && selectedBlog) {
         await axios.patch(
-          `http://localhost:3000/blogs/${selectedBlog._id}`,
+          `https://bornobyte-680lol1f2-mugdhos-projects-9c18dfda.vercel.app/blogs/${selectedBlog._id}`,
           formData,
           {
             headers: {
@@ -124,7 +124,7 @@ const Blog = () => {
     try {
       // const token = await getAuthToken();
 
-      await axios.delete(`http://localhost:3000/blogs/${blogId}`, {
+      await axios.delete(`https://bornobyte-680lol1f2-mugdhos-projects-9c18dfda.vercel.app/blogs/${blogId}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access-token")}`,
         },
